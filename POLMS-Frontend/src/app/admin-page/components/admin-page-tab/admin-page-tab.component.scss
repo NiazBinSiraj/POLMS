@@ -1,0 +1,10 @@
+li.is-active a{
+    background-color: darken(#3273dc, 15);
+    border-color: white;
+}
+
+li a:hover{
+    background-color: darken(#3273dc, 15);
+    border-color: white;
+    color: white;;
+}

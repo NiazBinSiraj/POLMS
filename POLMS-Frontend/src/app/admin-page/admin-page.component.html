@@ -1,0 +1,5 @@
+<app-admin-page-tab #adminPageTab></app-admin-page-tab>
+<app-admin-info *ngIf="adminPageTab.adminInfoIsActive === true"></app-admin-info>
+<app-indent-info *ngIf="adminPageTab.indentInfoIsActive === true"></app-indent-info>
+<app-user-info *ngIf="adminPageTab.userInfoIsActive === true"></app-user-info>
+<app-vehicle-info *ngIf="adminPageTab.vehicleInfoIsActive === true"></app-vehicle-info>
