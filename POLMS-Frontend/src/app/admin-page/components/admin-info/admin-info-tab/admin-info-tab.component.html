@@ -1,17 +1,17 @@
 <div class="tabs is-toggle is-fullwidth">
     <ul>
-      <li class="is-active">
-        <a>
+      <li [ngClass]="{'is-active' : adminUsersInfoIsActive}">
+        <a (click)="OnClickAdminUsersInfo()">
           <span>Admin User's Info</span>
         </a>
       </li>
-      <li>
-        <a>
+      <li [ngClass]="{'is-active' : adminsInfoIsActive}">
+        <a (click)="OnClickAdminsInfo()">
           <span>Admin's Info</span>
         </a>
       </li>
-      <li>
-        <a>
+      <li [ngClass]="{'is-active' : entryNewAdminIsActive}">
+        <a (click)="OnClickEntryNewAdmin()">
           <span>Entry New Admin</span>
         </a>
       </li>
