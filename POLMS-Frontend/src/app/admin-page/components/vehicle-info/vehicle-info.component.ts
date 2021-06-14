@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-info.component.scss']
 })
 export class VehicleInfoComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor() {
+    //For Testing. Should be deleted before production
+  }
 
   ngOnInit(): void {
   }
-
 }

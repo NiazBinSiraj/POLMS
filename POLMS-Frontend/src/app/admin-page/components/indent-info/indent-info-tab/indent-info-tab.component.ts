@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndentInfoTabComponent implements OnInit {
 
+  indentInfoIsActive:boolean = true;
+  entryNewIntendIsActive:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  OnClickIndentInfo(): void{
+    this.indentInfoIsActive = true;
+    this.entryNewIntendIsActive = false;
+  }
+
+  OnClickEntryNewIndent(): void{
+    this.indentInfoIsActive = false;
+    this.entryNewIntendIsActive = true;
   }
 
 }

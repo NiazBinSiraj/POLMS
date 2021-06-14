@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 $primary-color: #4473c5;
-$secondary-color: #96a8da;
+$secondary-color: #96aad8;
 
 //Navbar Style
 $navbar-background-color: $primary-color;
@@ -16,8 +16,8 @@ $primary-tab-hover-color: darken($primary-color, 10);
 $primary-tab-hover-text-color: white;
 
 //Secondary Tab Style
-$secondary-tab-active-background-color: #5299d7;
-$secondary-tab-background-color: #9bbee6;
+$secondary-tab-active-background-color: #4b93d5;
+$secondary-tab-background-color: #a0bee1;
 $secondary-tab-active-text-color: white;
 $secondary-tab-text-color: black;
 $secondary-tab-hover-color: #5299d7;
@@ -87,5 +87,44 @@ $table-border-color: white;
     td{
         background-color: $table-body-background-color-2;
         color: $table-body-text-color;
+    }
+}
+
+//Tab Style
+li.is-active{
+    a.primary-tab{
+        background-color: $primary-tab-active-background-color;
+        border-color: white;
+        color: $primary-tab-active-text-color;
+    }
+
+    a.secondary-tab{
+        background-color: $secondary-tab-active-background-color;
+        border-color: white;
+        color: $secondary-tab-active-text-color;
+    }
+}
+
+li{
+    a.primary-tab:hover{
+        background-color: $primary-tab-hover-color;
+        border-color: white;
+        color: $primary-tab-hover-text-color;
+    }
+
+    a.primary-tab{
+        background-color: $primary-tab-background-color;
+        color: $primary-tab-text-color;
+    }
+
+    a.secondary-tab:hover{
+        background-color: $secondary-tab-hover-color;
+        border-color: white;
+        color: $secondary-tab-hover-text-color;
+    }
+
+    a.secondary-tab{
+        background-color: $secondary-tab-background-color;
+        color: $secondary-tab-text-color;
     }
 }

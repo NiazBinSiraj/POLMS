@@ -1,1 +1,5 @@
-<app-user-info-tab></app-user-info-tab>
+<app-user-info-tab #userInfoTab></app-user-info-tab>
+<app-ncos-info *ngIf="userInfoTab.ncosInfoIsActive"></app-ncos-info>
+<app-drivers-info *ngIf="userInfoTab.driversInfoIsActive"></app-drivers-info>
+<app-entry-new-nco *ngIf="userInfoTab.entryNewNcoIsActive"></app-entry-new-nco>
+<app-entry-new-driver *ngIf="userInfoTab.entryNewDriverIsActive"></app-entry-new-driver>

@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleInfoTabComponent implements OnInit {
 
+  vehicleInfoIsActive:boolean = true;
+  entryNewVehicleIsActive:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  OnClickVehicleInfo():void {
+    this.vehicleInfoIsActive = true;
+    this.entryNewVehicleIsActive = false;
+  }
+
+  OnClickEntryNewVehicle():void {
+    this.vehicleInfoIsActive = false;
+    this.entryNewVehicleIsActive = true;
   }
 
 }

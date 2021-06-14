@@ -15,6 +15,14 @@ import { IndentInfoTabComponent } from './components/indent-info/indent-info-tab
 import { AdminUsersInfoComponent } from './components/admin-info/admin-users-info/admin-users-info.component';
 import { AdminsInfoComponent } from './components/admin-info/admins-info/admins-info.component';
 import { EntryNewAdminComponent } from './components/admin-info/entry-new-admin/entry-new-admin.component';
+import { NcosInfoComponent } from './components/user-info/ncos-info/ncos-info.component';
+import { DriversInfoComponent } from './components/user-info/drivers-info/drivers-info.component';
+import { EntryNewNcoComponent } from './components/user-info/entry-new-nco/entry-new-nco.component';
+import { EntryNewDriverComponent } from './components/user-info/entry-new-driver/entry-new-driver.component';
+import { EntryNewVehicleComponent } from './components/vehicle-info/entry-new-vehicle/entry-new-vehicle.component';
+import { EntryNewIndentComponent } from './components/indent-info/entry-new-indent/entry-new-indent.component';
+import { IndentInfoContentComponent } from './components/indent-info/indent-info-content/indent-info-content.component';
+import { VehicleInfoContentComponent } from './components/vehicle-info/vehicle-info-content/vehicle-info-content.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +38,15 @@ import { EntryNewAdminComponent } from './components/admin-info/entry-new-admin/
     IndentInfoTabComponent,
     AdminUsersInfoComponent,
     AdminsInfoComponent,
-    EntryNewAdminComponent
+    EntryNewAdminComponent,
+    NcosInfoComponent,
+    DriversInfoComponent,
+    EntryNewNcoComponent,
+    EntryNewDriverComponent,
+    EntryNewVehicleComponent,
+    EntryNewIndentComponent,
+    IndentInfoContentComponent,
+    VehicleInfoContentComponent
   ],
   imports: [
     CommonModule,

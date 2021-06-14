@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admins-info.component.scss']
 })
 export class AdminsInfoComponent implements OnInit {
+  
 
   isClickedToBeDeleted:boolean = false;
   isClickedToBeEdited:boolean = false;
