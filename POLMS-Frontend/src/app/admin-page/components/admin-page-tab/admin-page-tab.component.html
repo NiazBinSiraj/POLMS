@@ -1,0 +1,29 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : adminInfoIsActive}">
+        <a class="primary-tab" (click)='OnClickAdminInfo()'>
+          <span>Admin Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : userInfoIsActive}">
+        <a class="primary-tab" (click)="OnClickUserInfo()">
+          <span>User Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : vehicleInfoIsActive}">
+        <a class="primary-tab" (click)="OnClickVehicleInfo()">
+          <span>Vehicle Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : indentInfoIsActive}">
+        <a class="primary-tab" (click)="OnClickIndentInfo()">
+          <span>Indent Info</span>
+        </a>
+      </li>
+      <li>
+        <a class="primary-tab">
+          <span>Stock Tracking</span>
+        </a>
+      </li>
+    </ul>
+  </div>

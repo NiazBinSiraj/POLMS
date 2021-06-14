@@ -1,0 +1,19 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : adminUsersInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickAdminUsersInfo()">
+          <span>Admin User's Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : adminsInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickAdminsInfo()">
+          <span>Admin's Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : entryNewAdminIsActive}">
+        <a class="secondary-tab" (click)="OnClickEntryNewAdmin()">
+          <span>Entry New Admin</span>
+        </a>
+      </li>
+    </ul>
+  </div>

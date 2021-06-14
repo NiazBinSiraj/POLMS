@@ -1,0 +1,24 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : ncosInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickNcosInfo()">
+          <span>NCO's Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : driversInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickDriversInfo()">
+          <span>Driver's Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : entryNewNcoIsActive}">
+        <a class="secondary-tab" (click)="OnClickEntryNewNco()">
+          <span>Entry New NCO</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : entryNewDriverIsActive}">
+        <a class="secondary-tab" (click)="OnClickEntryNewDriver()">
+          <span>Entry New Driver</span>
+        </a>
+      </li>
+    </ul>
+  </div>

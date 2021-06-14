@@ -1,0 +1,4 @@
+<app-admin-info-tab #adminInfoTab></app-admin-info-tab>
+<app-admin-users-info *ngIf="adminInfoTab.adminUsersInfoIsActive"></app-admin-users-info>
+<app-admins-info *ngIf="adminInfoTab.adminsInfoIsActive"></app-admins-info>
+<app-entry-new-admin *ngIf="adminInfoTab.entryNewAdminIsActive"></app-entry-new-admin>

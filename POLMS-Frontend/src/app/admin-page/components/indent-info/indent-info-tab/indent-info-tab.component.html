@@ -1,0 +1,14 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : indentInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickIndentInfo()">
+          <span>Indent Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : entryNewIntendIsActive}">
+        <a class="secondary-tab" (click)="OnClickEntryNewIndent()">
+          <span>Entry New Indent</span>
+        </a>
+      </li>
+    </ul>
+  </div>

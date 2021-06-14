@@ -1,0 +1,14 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : vehicleInfoIsActive}">
+        <a class="secondary-tab" (click)="OnClickVehicleInfo()">
+          <span>Vehicle Info</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : entryNewVehicleIsActive}">
+        <a class="secondary-tab" (click)="OnClickEntryNewVehicle()">
+          <span>Entry New Vehicle</span>
+        </a>
+      </li>
+    </ul>
+  </div>
