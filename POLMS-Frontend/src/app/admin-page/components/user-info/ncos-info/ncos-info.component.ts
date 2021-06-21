@@ -1,143 +1,148 @@
+import { NCO } from './../../../../models/nco';
 import { Component, OnInit } from '@angular/core';
-import { Admin } from 'src/app/models/admin';
+import { AdminServiceService } from 'src/app/services/adminService/admin-service.service';
+import { AppState } from 'src/app-state';
 
 @Component({
   selector: 'app-ncos-info',
   templateUrl: './ncos-info.component.html',
-  styleUrls: ['./ncos-info.component.scss']
+  styleUrls: ['./ncos-info.component.scss'],
 })
 export class NcosInfoComponent implements OnInit {
+  isClickedToBeDeleted: boolean = false;
+  isClickedToBeEdited: boolean = false;
+  actionIndex: number = 0;
 
-  isClickedToBeDeleted:boolean = false;
-  isClickedToBeEdited:boolean = false;
-  actionIndex:number = 0;
+  passwordIsHidden: boolean = true;
+  passwordStatus: string = 'Show';
 
-  passwordIsHidden:boolean = true;
-  passwordStatus:string = "Show";
+  ncos: NCO[] = [];
+  updatedNco:NCO = new NCO();
 
-  admins:Admin[] = [];
-  
-  constructor() {
-    //For Testing. Should be deleted before production
-    let data:Admin = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abul";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rashed";
-    data.lastName = "Uddin";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abdul";
-    data.lastName = "Mozid";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rahat";
-    data.lastName = "Rahman";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rakib";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-  }
+  constructor(private adminService: AdminServiceService) {}
 
   ngOnInit(): void {
+    this.GetAllNCOs();
   }
 
-  OnClickEdit(index:number): void{
+  async GetAllNCOs() {
+    this.ncos = [];
+    await this.adminService.GetAllNCOInfo().then((res) => {
+      res.result.rows.forEach(async (element: any, i:number) => {
+        let nco: NCO = new NCO();
+        nco.user_id = element[0];
+        nco.rank = element[1];
+        nco.first_name = element[2];
+        nco.last_name = element[3];
+        nco.unit = element[4];
+        nco.subunit = element[5];
+        nco.contact = element[8];
+
+        nco.personal_no = element[10];
+        nco.nco_appointment = element[11];
+        nco.order_no = element[12];
+        nco.order_date = element[13];
+        nco.order_expire = element[14];
+
+        this.ncos.push(nco);
+
+        if(i == res.result.rows.length - 1)
+        {
+          this.ncos.sort((a:NCO,b:NCO) => a.user_id - b.user_id);
+        }
+      });
+    });
+  }
+
+  OnClickEdit(index: number): void {
     this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Edited.");
+    console.log(this.actionIndex + 'is clicked to be Edited.');
+    this.updatedNco = this.ncos[this.actionIndex];
     this.isClickedToBeEdited = true;
   }
 
-  OnClickCancelUpdate(): void{
-    console.log(this.actionIndex + "is Canceled Edited.");
+  OnClickCancelUpdate(): void {
+    console.log(this.actionIndex + 'is Canceled Edited.');
     this.isClickedToBeEdited = false;
   }
 
-  OnClickDelete(index: number): void{
+  async OnClickUpdate(){
+    await this.adminService.UpdateNCOInfo(this.updatedNco).then((res) =>{
+      AppState.instance.user_name = this.updatedNco.first_name + " " + this.updatedNco.last_name;
+      this.updatedNco = new NCO();
+      console.log(res);
+      this.GetAllNCOs();
+      this.isClickedToBeEdited = false;
+    }).catch(console.error);
+  }
+
+  OnClickDelete(index: number): void {
     this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Deleted.");
+    console.log(this.actionIndex + 'is clicked to be Deleted.');
     this.isClickedToBeDeleted = true;
   }
 
-  OnClickYesDelete(): void{
-    console.log(this.actionIndex + "is Deleted.");
+  OnClickYesDelete(): void {
+    console.log(this.actionIndex + 'is Deleted.');
+    this.adminService.DeleteNCO({user_id : this.ncos[this.actionIndex].user_id}).then((res) =>{
+      this.GetAllNCOs();
+      console.log(res);
+      this.isClickedToBeDeleted = false;
+    }).catch(console.error);
+  }
+
+  OnClickNoDelete(): void {
+    console.log(this.actionIndex + 'is not Deleted.');
     this.isClickedToBeDeleted = false;
   }
 
-  OnClickNoDelete(): void{
-    console.log(this.actionIndex + "is not Deleted.");
-    this.isClickedToBeDeleted = false;
-  }
-
-  OnClickShowPassword()
-  {
-    if(this.passwordIsHidden)
-    {
+  OnClickShowPassword() {
+    if (this.passwordIsHidden) {
       this.passwordIsHidden = false;
-      this.passwordStatus = "Hide"
-    }
-
-    else
-    {
+      this.passwordStatus = 'Hide';
+    } else {
       this.passwordIsHidden = true;
-      this.passwordStatus = "Show"
+      this.passwordStatus = 'Show';
     }
   }
 
+  OnEditUserID(event:any){
+    this.updatedNco.user_id = event.target.value;
+  }
+  OnEditPersonalNo(event:any){
+    this.updatedNco.personal_no = event.target.value;
+  }
+  OnEditRank(event:any){
+    this.updatedNco.rank = event.target.value;
+  }
+  OnEditFirstName(event:any){
+    this.updatedNco.first_name = event.target.value;
+  }
+  OnEditLastName(event:any){
+    this.updatedNco.last_name = event.target.value;
+  }
+  OnEditUnit(event:any){
+    this.updatedNco.unit = event.target.value;
+  }
+  OnEditSubunit(event:any){
+    this.updatedNco.subunit = event.target.value;
+  }
+  OnEditAppointment(event:any){
+    this.updatedNco.nco_appointment = event.target.value;
+  }
+  OnEditOrderNo(event:any){
+    this.updatedNco.order_no = event.target.value;
+  }
+  OnEditOrderDate(event:any){
+    this.updatedNco.order_date = event.target.value;
+  }
+  OnEditOrderExpire(event:any){
+    this.updatedNco.order_expire = event.target.value;
+  }
+  OnEditContact(event:any){
+    this.updatedNco.contact = event.target.value;
+  }
+  OnEditPassword(event:any){
+    this.updatedNco.password = event.target.value;
+  }
 }

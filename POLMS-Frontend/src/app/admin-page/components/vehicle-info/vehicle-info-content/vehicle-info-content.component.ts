@@ -1,3 +1,4 @@
+import { Vehicle } from './../../../../models/vehicle';
 import { Component, OnInit } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 
@@ -12,84 +13,25 @@ export class VehicleInfoContentComponent implements OnInit {
   isClickedToBeEdited:boolean = false;
   actionIndex:number = 0;
 
-  admins:Admin[] = [];
+  vehicles:Vehicle[] = [];
   
   constructor() {
     //For Testing. Should be deleted before production
-    let data:Admin = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abul";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
+    let vehicle = new Vehicle();
+    vehicle.vehicle_id = 1;
+    vehicle.vehicle_type = "Demo";
+    vehicle.vehicle_class = "Demo";
+    vehicle.vehicle_issue = "Demo";
+    vehicle.initial_mileage = "Demo";
+    vehicle.total_mileage = "Demo";
+    vehicle.total_issue_POL_type = "Demo";
+    vehicle.total_issue_POL_amount = "Demo";
+    vehicle.total_usage_POL_type = "Demo";
+    vehicle.total_usage_POL_amount = "Demo";
+    vehicle.total_POL_stock = "Demo";
+    vehicle.last_update = "Demo";
 
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rashed";
-    data.lastName = "Uddin";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abdul";
-    data.lastName = "Mozid";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rahat";
-    data.lastName = "Rahman";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rakib";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
+    this.vehicles.push(vehicle);
   }
 
   ngOnInit(): void {

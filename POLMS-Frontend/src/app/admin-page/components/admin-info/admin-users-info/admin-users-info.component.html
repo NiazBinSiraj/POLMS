@@ -9,7 +9,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="User ID" readonly>
+                      <input class="input" type="text" placeholder="User ID" value={{admin.user_id}} readonly>
                     </p>
                   </div>
             </td>
@@ -23,7 +23,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="BA No" readonly>
+                      <input class="input" type="text" placeholder="BA No" value={{admin.ba_no}} readonly>
                     </p>
                   </div>
             </td>
@@ -37,7 +37,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Rank" readonly>
+                      <input class="input" type="text" placeholder="Rank" value={{admin.rank}} readonly>
                     </p>
                   </div>
             </td>
@@ -51,7 +51,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="First Name" readonly>
+                      <input class="input" type="text" placeholder="First Name" value={{admin.first_name}} readonly>
                     </p>
                   </div>
             </td>
@@ -65,7 +65,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Last Name" readonly>
+                      <input class="input" type="text" placeholder="Last Name" value={{admin.last_name}} readonly>
                     </p>
                   </div>
             </td>
@@ -79,7 +79,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Unit" readonly>
+                      <input class="input" type="text" placeholder="Unit" value={{admin.unit}} readonly>
                     </p>
                   </div>
             </td>
@@ -93,7 +93,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Subunit" readonly>
+                      <input class="input" type="text" placeholder="Subunit" value={{admin.subunit}} readonly>
                     </p>
                   </div>
             </td>
@@ -107,7 +107,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Appointment" readonly>
+                      <input class="input" type="text" placeholder="Appointment" value={{admin.coro_appointment}} readonly>
                     </p>
                   </div>
             </td>
@@ -121,7 +121,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="CORO No" readonly>
+                      <input class="input" type="text" placeholder="CORO No" value={{admin.coro_no}} readonly>
                     </p>
                   </div>
             </td>
@@ -135,7 +135,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="CORO Date" readonly>
+                      <input class="input" type="text" placeholder="CORO Date" value={{admin.coro_date}} readonly>
                     </p>
                   </div>
             </td>
@@ -149,7 +149,7 @@
                       </a>
                   </p>
                   <p class="control" style="width: 60%;">
-                    <input class="input" type="text" placeholder="CORO Expire" readonly>
+                    <input class="input" type="text" placeholder="CORO Expire" value={{admin.coro_expire}} readonly>
                   </p>
                 </div>
           </td>
@@ -163,7 +163,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Contacts" readonly>
+                      <input class="input" type="text" placeholder="Contacts" value={{admin.contact}} readonly>
                     </p>
                   </div>
             </td>
@@ -177,7 +177,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 50%;">
-                      <input class="input" type="{{ passwordIsHidden ? 'password' : 'text' }}" placeholder="Password">
+                      <input (keyup)="OnEditPassword($event)" class="input" type="{{ passwordIsHidden ? 'password' : 'text' }}" placeholder="Password" value={{admin.password}}>
                     </p>
                     <p class="control" style="width: 10%;">
                         <a class="button is-fullwidth" (click)="OnClickShowPassword()">
@@ -189,10 +189,41 @@
         </tr>
         <tr>
             <td>
-                <button class="button is-fullwidth is-link">
+                <button (click)="OnClickChangePassword()" class="button is-fullwidth is-link">
                     Change Password
                 </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+<!--Change Password Warning Modal-->
+<div class="modal" [ngClass]="{ 'is-active': isClickedToChangePassword == true }">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <div class="is-flex-column">
+        <h2 class="title is-2" style="text-align: center">
+          Are You Sure?
+        </h2>
+        <div class="field is-grouped">
+          <p class="control">
+            <button (click)="OnClickYes()" class="button is-success">
+              YES
+            </button>
+          </p>
+          <p class="control">
+            <button (click)="OnClickNo()" class="button is-danger">
+              NO
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    (click)="OnClickCancel()"
+    class="modal-close is-large"
+    aria-label="close"
+  ></button>
+</div>

@@ -10,7 +10,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="User ID">
+                      <input (keyup)="OnEditUserID($event)" class="input" type="text" placeholder="User ID">
                     </p>
                   </div>
             </td>
@@ -24,7 +24,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="BA No">
+                      <input (keyup)="OnEditBaNo($event)" class="input" type="text" placeholder="BA No">
                     </p>
                   </div>
             </td>
@@ -38,7 +38,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Rank">
+                      <input (keyup)="OnEditRank($event)" class="input" type="text" placeholder="Rank">
                     </p>
                   </div>
             </td>
@@ -52,7 +52,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="First Name">
+                      <input (keyup)="OnEditFirstName($event)" class="input" type="text" placeholder="First Name">
                     </p>
                   </div>
             </td>
@@ -66,7 +66,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Last Name">
+                      <input (keyup)="OnEditLastName($event)" class="input" type="text" placeholder="Last Name">
                     </p>
                   </div>
             </td>
@@ -80,7 +80,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Unit">
+                      <input (keyup)="OnEditUnit($event)" class="input" type="text" placeholder="Unit">
                     </p>
                   </div>
             </td>
@@ -94,7 +94,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Subunit">
+                      <input (keyup)="OnEditSubunit($event)" class="input" type="text" placeholder="Subunit">
                     </p>
                   </div>
             </td>
@@ -108,7 +108,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Appointment">
+                      <input (keyup)="OnEditAppointment($event)" class="input" type="text" placeholder="Appointment">
                     </p>
                   </div>
             </td>
@@ -122,7 +122,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="CORO No">
+                      <input (keyup)="OnEditCoroNo($event)" class="input" type="text" placeholder="CORO No">
                     </p>
                   </div>
             </td>
@@ -136,7 +136,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="CORO Date">
+                      <input (keyup)="OnEditCoroDate($event)" class="input" type="text" placeholder="CORO Date">
                     </p>
                   </div>
             </td>
@@ -150,7 +150,7 @@
                       </a>
                   </p>
                   <p class="control" style="width: 60%;">
-                    <input class="input" type="text" placeholder="CORO Expire">
+                    <input (keyup)="OnEditCoroExpire($event)" class="input" type="text" placeholder="CORO Expire">
                   </p>
                 </div>
           </td>
@@ -164,7 +164,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 60%;">
-                      <input class="input" type="text" placeholder="Contacts">
+                      <input (keyup)="OnEditContact($event)" class="input" type="text" placeholder="Contacts">
                     </p>
                   </div>
             </td>
@@ -178,7 +178,7 @@
                         </a>
                     </p>
                     <p class="control" style="width: 50%;">
-                      <input class="input" type="{{ passwordIsHidden ? 'password' : 'text' }}" placeholder="Password">
+                      <input (keyup)="OnEditPassword($event)" class="input" type="{{ passwordIsHidden ? 'password' : 'text' }}" placeholder="Password">
                     </p>
                     <p class="control" style="width: 10%;">
                         <a class="button is-fullwidth" (click)="OnClickShowPassword()">
@@ -190,7 +190,7 @@
         </tr>
         <tr>
             <td>
-                <button class="button is-fullwidth is-link">
+                <button (click)="OnClickSubmit()" class="button is-fullwidth is-link">
                     Submit
                 </button>
             </td>

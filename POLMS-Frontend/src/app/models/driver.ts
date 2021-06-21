@@ -1,4 +1,4 @@
-export class Admin{
+export class Driver{
     user_id!: number;
     rank!: string;
     first_name!: string;
@@ -8,9 +8,9 @@ export class Admin{
     password!: string;
     user_type!: string;
     contact!: string;
-    ba_no!: string;
-    coro_appointment!: string;
-    coro_no!: string;
-    coro_date!: string;
-    coro_expire!: string;
+    personal_no!: string;
+    license_no!: string;
+    license_type!: string;
+    license_issue!: string;
+    license_expire!: string;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AdminPageRoutingModule } from './admin-page-routing.module';
 import { AdminPageComponent } from './admin-page.component';
@@ -50,7 +51,8 @@ import { VehicleInfoContentComponent } from './components/vehicle-info/vehicle-i
   ],
   imports: [
     CommonModule,
-    AdminPageRoutingModule
+    AdminPageRoutingModule,
+    HttpClientModule
   ]
 })
 export class AdminPageModule { }

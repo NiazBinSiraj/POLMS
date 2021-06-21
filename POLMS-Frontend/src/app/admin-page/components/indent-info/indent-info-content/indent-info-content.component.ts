@@ -1,3 +1,4 @@
+import { Indent } from './../../../../models/indent';
 import { Component, OnInit } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 
@@ -12,84 +13,18 @@ export class IndentInfoContentComponent implements OnInit {
   isClickedToBeEdited:boolean = false;
   actionIndex:number = 0;
 
-  admins:Admin[] = [];
+  indents:Indent[] = [];
   
   constructor() {
-    //For Testing. Should be deleted before production
-    let data:Admin = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abul";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
+    let indent:Indent = new Indent();
 
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rashed";
-    data.lastName = "Uddin";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
+    indent.indent_id = 1;
+    indent.indent_issue = "Demo";
+    indent.indent_expire = "Demo";
+    indent.vehicle_type = "Demo";
+    indent.no_of_vehicles = 1;
 
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Abdul";
-    data.lastName = "Mozid";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rahat";
-    data.lastName = "Rahman";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
-
-    data = new Admin();
-    data.userId = "112";
-    data.baNo = "12218";
-    data.contact = "Dhaka";
-    data.coroAppt = "Demo";
-    data.coroDate = "12 June 2021";
-    data.coroExpire = "12 July 2021";
-    data.coroNo = "12345";
-    data.firstName = "Rakib";
-    data.lastName = "Hasan";
-    data.rank = "COL";
-    data.unit = "Demo";
-    data.subunit = "Demo";
-    this.admins.push(data);
+    this.indents.push(indent);
   }
 
   ngOnInit(): void {
