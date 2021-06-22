@@ -42,8 +42,8 @@ export class LoginPageComponent implements OnInit {
         AppState.instance.user_name = res.user_name;
 
         if(res.user_type == 'Officer') this.router.navigate(['admin']);
-        else if(res.user_type == 'NCO') this.router.navigate(['/nco']);
-        else if(res.user_type == 'Driver') this.router.navigate(['/driver']);
+        else if(res.user_type == 'NCO') this.router.navigate(['nco']);
+        else if(res.user_type == 'Driver') this.router.navigate(['driver']);
       }
     }).catch(console.error);
   }

@@ -1,0 +1,82 @@
+<h2 class="title is-2" style="text-align: center; margin-top: 10px;">POL Ledger Entry</h2>
+<table class="table is-fullwidth container">
+    <tbody>
+        <tr>
+            <td>
+                <div class="field has-addons">
+                    <p class="control" style="width: 39%;">
+                        <a class="button is-static is-fullwidth form-head-1">
+                          Vehicle ID
+                        </a>
+                    </p>
+                    <p class="control" style="width: 60%;">
+                      <input (keyup)="OnEditVehicleId($event)" class="input" type="text" placeholder="User ID">
+                    </p>
+                  </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="field has-addons">
+                    <p class="control" style="width: 39%;">
+                        <a class="button is-static is-fullwidth form-head-2">
+                          Ledger No
+                        </a>
+                    </p>
+                    <p class="control" style="width: 60%;">
+                      <input (keyup)="OnEditLedgerNo($event)" class="input" type="text" placeholder="BA No">
+                    </p>
+                  </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="field has-addons">
+                    <p class="control" style="width: 39%;">
+                        <a class="button is-static is-fullwidth form-head-1">
+                          Ledger Date
+                        </a>
+                    </p>
+                    <p class="control" style="width: 60%;">
+                      <input (keyup)="OnEditLedgerDate($event)" class="input" type="text" placeholder="Rank">
+                    </p>
+                  </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="field has-addons">
+                    <p class="control" style="width: 39%;">
+                        <a class="button is-static is-fullwidth form-head-2">
+                          POL Issue Type
+                        </a>
+                    </p>
+                    <p class="control" style="width: 60%;">
+                      <input (keyup)="OnEditPOLIssueType($event)" class="input" type="text" placeholder="First Name">
+                    </p>
+                  </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="field has-addons">
+                    <p class="control" style="width: 39%;">
+                        <a class="button is-static is-fullwidth form-head-1">
+                          POL Issue Amount
+                        </a>
+                    </p>
+                    <p class="control" style="width: 60%;">
+                      <input (keyup)="OnEditPOLIssueAmount($event)" class="input" type="text" placeholder="Last Name">
+                    </p>
+                  </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="OnClickSubmit()" class="button is-fullwidth is-link">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

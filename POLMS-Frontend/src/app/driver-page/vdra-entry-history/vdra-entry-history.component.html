@@ -1,0 +1,55 @@
+<table class="table is-bordered is-fullwidth">
+    <thead>
+      <tr class="table-head">
+        <th>
+          <p>Entry No</p>
+        </th>
+        <th>
+          <p>Vehicle ID</p>
+        </th>
+        <th>
+          <p>Entry Date</p>
+        </th>
+        <th>
+          <p>Daily Mileage</p>
+        </th>
+        <th>
+          <p>POL Usage Type</p>
+        </th>
+        <th>
+          <p>POL Usage Amount</p>
+        </th>
+        <th>
+          <p>Entry By</p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let vdra of vdras; index as i"
+        [ngClass]="i % 2 === 0 ? 'table-body-1' : 'table-body-2'"
+      >
+        <td>
+          <p>{{ vdra.entry_no }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.vehicle_id }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.entry_date }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.daily_mileage }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.POL_usage_type }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.POL_usage_amount }}</p>
+        </td>
+        <td>
+          <p>{{ vdra.user_name }}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>

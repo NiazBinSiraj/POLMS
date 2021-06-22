@@ -1,3 +1,4 @@
+import { VehicleServiceService } from './../../../../services/vehicleService/vehicle-service.service';
 import { Vehicle } from './../../../../models/vehicle';
 import { Component, OnInit } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
@@ -15,52 +16,29 @@ export class VehicleInfoContentComponent implements OnInit {
 
   vehicles:Vehicle[] = [];
   
-  constructor() {
-    //For Testing. Should be deleted before production
-    let vehicle = new Vehicle();
-    vehicle.vehicle_id = 1;
-    vehicle.vehicle_type = "Demo";
-    vehicle.vehicle_class = "Demo";
-    vehicle.vehicle_issue = "Demo";
-    vehicle.initial_mileage = "Demo";
-    vehicle.total_mileage = "Demo";
-    vehicle.total_issue_POL_type = "Demo";
-    vehicle.total_issue_POL_amount = "Demo";
-    vehicle.total_usage_POL_type = "Demo";
-    vehicle.total_usage_POL_amount = "Demo";
-    vehicle.total_POL_stock = "Demo";
-    vehicle.last_update = "Demo";
-
-    this.vehicles.push(vehicle);
-  }
+  constructor(private vehicleService:VehicleServiceService) {}
 
   ngOnInit(): void {
+    this.GetVehicleList();
   }
 
-  OnClickEdit(index:number): void{
-    this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Edited.");
-    this.isClickedToBeEdited = true;
-  }
+  async GetVehicleList(){
+    this.vehicles = [];
+    this.vehicleService.GetVehiclesInfo().then((res) =>{
+      res.result.rows.forEach(async (element: any, i:number) => {
+        let vehicle: Vehicle = new Vehicle();
+        vehicle.vehicle_id = element[0];
+        vehicle.vehicle_type = element[1];
+        vehicle.vehicle_class = element[2];
+        vehicle.initial_mileage = element[3];
+        vehicle.vehicle_issue = element[4];
+        this.vehicles.push(vehicle);
 
-  OnClickCancelUpdate(): void{
-    console.log(this.actionIndex + "is Canceled Edited.");
-    this.isClickedToBeEdited = false;
-  }
-
-  OnClickDelete(index: number): void{
-    this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Deleted.");
-    this.isClickedToBeDeleted = true;
-  }
-
-  OnClickYesDelete(): void{
-    console.log(this.actionIndex + "is Deleted.");
-    this.isClickedToBeDeleted = false;
-  }
-
-  OnClickNoDelete(): void{
-    console.log(this.actionIndex + "is not Deleted.");
-    this.isClickedToBeDeleted = false;
+        if(i == res.result.rows.length - 1)
+        {
+          this.vehicles.sort((a:Vehicle,b:Vehicle) => b.vehicle_id - a.vehicle_id);
+        }
+      });
+    });
   }
 }

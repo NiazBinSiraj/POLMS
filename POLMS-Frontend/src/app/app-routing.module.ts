@@ -8,6 +8,14 @@ const routes: Routes = [
     loadChildren: () => import('./admin-page/admin-page.module').then(m => m.AdminPageModule)
   },
   {
+    path: 'nco',
+    loadChildren: () => import('./nco-page/nco-page.module').then(m => m.NcoPageModule)
+  },
+  {
+    path: 'driver',
+    loadChildren: () => import('./driver-page/driver-page.module').then(m => m.DriverPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

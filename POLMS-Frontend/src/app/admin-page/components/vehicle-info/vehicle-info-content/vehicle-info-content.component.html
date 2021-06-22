@@ -16,6 +16,7 @@
             <th>
                 <p>Initial Mileage</p>
             </th>
+            <!--
             <th>
                 <p>Total Mileage</p>
             </th>
@@ -37,9 +38,7 @@
             <th>
                 <p>Last Update</p>
             </th>
-            <th>
-                <p>Actions</p>
-            </th>
+        -->
         </tr>
     </thead>
     <tbody>
@@ -59,6 +58,7 @@
             <td>
                 <p>{{vehicle.initial_mileage}}</p>
             </td>
+            <!--
             <td>
                 <p>{{vehicle.total_mileage}}</p>
             </td>
@@ -80,134 +80,7 @@
             <td>
                 <p>{{vehicle.last_update}}</p>
             </td>
-            <td>
-                <a role="button" (click)="OnClickEdit(i)" class="icon has-text-info">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a role="button" (click)="OnClickDelete(i)" class="icon has-text-danger">
-                    <i class="far fa-trash-alt"></i>
-                </a>
-            </td>
+        -->
         </tr>
     </tbody>
 </table>
-
-<!--Delete Admin Warning Modal-->
-<div class="modal" [ngClass]="{'is-active' : isClickedToBeDeleted == true}">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-          <div class="is-flex-column">
-              <h2 class="title is-2" style="text-align: center;">Remove Vehicle ID = {{vehicles[actionIndex].vehicle_id}} ?</h2>
-              <p class="subtitle">Vehicle ID = {{vehicles[actionIndex].vehicle_id}} will permanently deleted.</p>
-              <div class="field is-grouped">
-                <p class="control">
-                  <button (click)="OnClickYesDelete()" class="button is-success">
-                    YES
-                  </button>
-                </p>
-                <p class="control">
-                  <button (click)="OnClickNoDelete()" class="button is-danger">
-                    NO
-                  </button>
-                </p>
-              </div>
-          </div>
-      </div>
-    </div>
-    <button (click)="OnClickNoDelete()" class="modal-close is-large" aria-label="close"></button>
-</div>
-
-<!--Edit Vehicle Modal Form-->
-<div class="modal" [ngClass]="{'is-active' : isClickedToBeEdited == true}">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-          <div class="is-flex-column">
-            <h2 class="title is-2">Update Vehicle ID {{vehicles[actionIndex].vehicle_id}}'s Info</h2>
-            <table class="table is-fullwidth container">
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="field has-addons">
-                                <p class="control" style="width: 39%;">
-                                    <a class="button is-static is-fullwidth form-head-1">
-                                      Vehicle ID
-                                    </a>
-                                </p>
-                                <p class="control" style="width: 60%;">
-                                  <input class="input" type="text" placeholder="User ID" value={{vehicles[actionIndex].vehicle_id}}>
-                                </p>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field has-addons">
-                                <p class="control" style="width: 39%;">
-                                    <a class="button is-static is-fullwidth form-head-2">
-                                        Vehicle Type
-                                    </a>
-                                </p>
-                                <p class="control" style="width: 60%;">
-                                  <input class="input" type="text" placeholder="BA No" value={{vehicles[actionIndex].vehicle_type}}>
-                                </p>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field has-addons">
-                                <p class="control" style="width: 39%;">
-                                    <a class="button is-static is-fullwidth form-head-1">
-                                        Vehicle Class
-                                    </a>
-                                </p>
-                                <p class="control" style="width: 60%;">
-                                  <input class="input" type="text" placeholder="Rank" value={{vehicles[actionIndex].vehicle_class}}>
-                                </p>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field has-addons">
-                                <p class="control" style="width: 39%;">
-                                    <a class="button is-static is-fullwidth form-head-2">
-                                        Vehicle Issue
-                                    </a>
-                                </p>
-                                <p class="control" style="width: 60%;">
-                                  <input class="input" type="text" placeholder="First Name" value={{vehicles[actionIndex].vehicle_issue}}>
-                                </p>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="field has-addons">
-                                <p class="control" style="width: 39%;">
-                                    <a class="button is-static is-fullwidth form-head-1">
-                                      Initial Mileage
-                                    </a>
-                                </p>
-                                <p class="control" style="width: 60%;">
-                                  <input class="input" type="text" placeholder="Last Name" value={{vehicles[actionIndex].initial_mileage}}>
-                                </p>
-                              </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="button is-fullwidth is-link">
-                                Update Info
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-          </div>
-      </div>
-    </div>
-    <button (click)="OnClickCancelUpdate()" class="modal-close is-large" aria-label="close"></button>
-</div>

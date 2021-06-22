@@ -1,0 +1,49 @@
+<table class="table is-bordered is-fullwidth">
+    <thead>
+      <tr class="table-head">
+        <th>
+          <p>Ledger No</p>
+        </th>
+        <th>
+          <p>Vehicle ID</p>
+        </th>
+        <th>
+          <p>Ledger Date</p>
+        </th>
+        <th>
+          <p>POL Issue Type</p>
+        </th>
+        <th>
+          <p>POL Issue Amount</p>
+        </th>
+        <th>
+          <p>Entry By</p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let pol of pols; index as i"
+        [ngClass]="i % 2 === 0 ? 'table-body-1' : 'table-body-2'"
+      >
+        <td>
+          <p>{{ pol.ledger_no }}</p>
+        </td>
+        <td>
+          <p>{{ pol.vehicle_id }}</p>
+        </td>
+        <td>
+          <p>{{ pol.ledger_date }}</p>
+        </td>
+        <td>
+          <p>{{ pol.pol_issue_type }}</p>
+        </td>
+        <td>
+          <p>{{ pol.pol_issue_amount }}</p>
+        </td>
+        <td>
+          <p>{{ pol.user_name }}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>

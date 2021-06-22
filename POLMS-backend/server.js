@@ -6,6 +6,10 @@ const authController = require("./app/controllers/auth.controller");
 const adminController = require("./app/controllers/admin.controller");
 const ncoController = require("./app/controllers/nco.controller");
 const driverController = require("./app/controllers/driver.controller");
+const vdraController = require("./app/controllers/vdra.controller");
+const polController = require("./app/controllers/pol.controller");
+const vehicleController = require("./app/controllers/vehicle.controller");
+const indentController = require("./app/controllers/indent.controller");
 
 app.use(cors());
 app.use(express.json());
@@ -81,6 +85,39 @@ app.put('/driver', function (req, res) {
 
 app.delete('/driver', function (req, res) {
   driverController.remove(req, res);
+});
+
+//VDRA Manager
+app.get('/vdraentry', function (req, res) {
+  vdraController.getAll(req,res);
+});
+
+app.post('/vdraentry', function (req, res) {
+  vdraController.insert(req,res);
+});
+
+//POL Manager
+app.get('/polentry', function (req, res) {
+  polController.getAll(req, res);
+});
+app.post('/polentry', function (req, res) {
+  polController.insert(req, res);
+});
+
+//Vehicle Manager
+app.get('/vehicle', function (req, res) {
+  vehicleController.getAll(req, res);
+});
+app.post('/vehicle', function (req, res) {
+  vehicleController.insert(req, res);
+});
+
+//Indent Manager
+app.get('/indent', function (req, res) {
+  indentController.getAll(req, res);
+});
+app.post('/indent', function (req, res) {
+  indentController.insert(req, res);
 });
 
 

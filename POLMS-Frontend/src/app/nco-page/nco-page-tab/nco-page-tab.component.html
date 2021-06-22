@@ -1,0 +1,14 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : polLedgerEntryIsActive}">
+        <a class="primary-tab" (click)='OnClickPolLedgerEntry()'>
+          <span>POL Ledger Entry</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : polLedgerEntryHistoryIsActive}">
+        <a class="primary-tab" (click)="OnClickPolLedgerEntryHistory()">
+          <span>POL Ledger Entry History</span>
+        </a>
+      </li>
+    </ul>
+  </div>

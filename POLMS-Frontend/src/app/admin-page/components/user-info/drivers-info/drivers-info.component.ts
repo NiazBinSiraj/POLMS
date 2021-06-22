@@ -69,7 +69,7 @@ export class DriversInfoComponent implements OnInit {
 
   async OnClickUpdate(){
     await this.adminService.UpdateDriverInfo(this.updatedDriver).then((res) =>{
-      AppState.instance.user_name = this.updatedDriver.first_name + " " + this.updatedDriver.last_name;
+      if(this.drivers[this.actionIndex].user_id == AppState.instance.user_id) AppState.instance.user_name = this.updatedDriver.first_name + " " + this.updatedDriver.last_name;
       this.updatedDriver = new Driver();
       console.log(res);
       this.GetAllDrivers();

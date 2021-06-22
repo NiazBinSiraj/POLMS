@@ -28,7 +28,6 @@ async function getAll(req, res) {
             message: "success"
         });
     } catch (error) {
-        console.error(error);
         console.error(error.message);
     } finally {
         try {

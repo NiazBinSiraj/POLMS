@@ -1,3 +1,4 @@
+import { IndentServiceService } from './../../../../services/indentService/indent-service.service';
 import { Indent } from './../../../../models/indent';
 import { Component, OnInit } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
@@ -15,46 +16,31 @@ export class IndentInfoContentComponent implements OnInit {
 
   indents:Indent[] = [];
   
-  constructor() {
-    let indent:Indent = new Indent();
-
-    indent.indent_id = 1;
-    indent.indent_issue = "Demo";
-    indent.indent_expire = "Demo";
-    indent.vehicle_type = "Demo";
-    indent.no_of_vehicles = 1;
-
-    this.indents.push(indent);
-  }
+  constructor(private indentService:IndentServiceService) {}
 
   ngOnInit(): void {
+    this.GetIndentList();
   }
 
-  OnClickEdit(index:number): void{
-    this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Edited.");
-    this.isClickedToBeEdited = true;
-  }
+  async GetIndentList(){
+    this.indents = [];
+    this.indentService.GetIndentsInfo().then((res) =>{
+      res.result.rows.forEach(async (element: any, i:number) => {
+        let indent: Indent = new Indent();
+        indent.indent_id = element[0];
+        indent.indent_issue = element[1];
+        indent.indent_expire = element[2];
+        indent.vehicle_type = element[3];
+        indent.no_of_vehicles = element[4];
 
-  OnClickCancelUpdate(): void{
-    console.log(this.actionIndex + "is Canceled Edited.");
-    this.isClickedToBeEdited = false;
-  }
+        this.indents.push(indent);
 
-  OnClickDelete(index: number): void{
-    this.actionIndex = index;
-    console.log(this.actionIndex + "is clicked to be Deleted.");
-    this.isClickedToBeDeleted = true;
-  }
-
-  OnClickYesDelete(): void{
-    console.log(this.actionIndex + "is Deleted.");
-    this.isClickedToBeDeleted = false;
-  }
-
-  OnClickNoDelete(): void{
-    console.log(this.actionIndex + "is not Deleted.");
-    this.isClickedToBeDeleted = false;
+        if(i == res.result.rows.length - 1)
+        {
+          this.indents.sort((a:Indent,b:Indent) => b.indent_id - a.indent_id);
+        }
+      });
+    });
   }
 
 }

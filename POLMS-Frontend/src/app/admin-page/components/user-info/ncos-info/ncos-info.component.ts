@@ -68,7 +68,7 @@ export class NcosInfoComponent implements OnInit {
 
   async OnClickUpdate(){
     await this.adminService.UpdateNCOInfo(this.updatedNco).then((res) =>{
-      AppState.instance.user_name = this.updatedNco.first_name + " " + this.updatedNco.last_name;
+      if(this.ncos[this.actionIndex].user_id == AppState.instance.user_id) AppState.instance.user_name = this.updatedNco.first_name + " " + this.updatedNco.last_name;
       this.updatedNco = new NCO();
       console.log(res);
       this.GetAllNCOs();

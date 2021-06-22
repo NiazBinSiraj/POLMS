@@ -1,0 +1,14 @@
+<div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li [ngClass]="{'is-active' : polLedgerEntryIsActive}">
+        <a class="primary-tab" (click)='OnClickVdraEntry()'>
+          <span>VDRA Entry</span>
+        </a>
+      </li>
+      <li [ngClass]="{'is-active' : polLedgerEntryHistoryIsActive}">
+        <a class="primary-tab" (click)="OnClickVdraEntryHistory()">
+          <span>VDRA Entry History</span>
+        </a>
+      </li>
+    </ul>
+  </div>

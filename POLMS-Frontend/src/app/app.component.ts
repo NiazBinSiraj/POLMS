@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   {
     if(AppState.instance.isLoggedIn){
       if(AppState.instance.user_type == "Officer")this.router.navigate(['admin']);
+      if(AppState.instance.user_type == "NCO")this.router.navigate(['nco']);
+      if(AppState.instance.user_type == "Driver")this.router.navigate(['driver']);
     }
     else{
       this.router.navigate(['login']);

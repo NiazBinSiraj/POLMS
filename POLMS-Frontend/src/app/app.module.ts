@@ -7,6 +7,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NavBarComponent } from './root-components/nav-bar/nav-bar.component';
 
 import { AdminPageModule } from './admin-page/admin-page.module';
+import { NcoPageModule } from './nco-page/nco-page.module';
+import { DriverPageModule } from './driver-page/driver-page.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AdminPageModule } from './admin-page/admin-page.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminPageModule
+    AdminPageModule,
+    NcoPageModule,
+    DriverPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

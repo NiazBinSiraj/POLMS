@@ -68,7 +68,7 @@ export class AdminsInfoComponent implements OnInit {
 
   async OnClickUpdate(){
     await this.adminService.UpdateAdminInfo(this.updatedAdmin).then((res) =>{
-      AppState.instance.user_name = this.updatedAdmin.first_name + " " + this.updatedAdmin.last_name;
+      if(this.admins[this.actionIndex].user_id == AppState.instance.user_id) AppState.instance.user_name = this.updatedAdmin.first_name + " " + this.updatedAdmin.last_name;
       this.updatedAdmin = new Admin();
       console.log(res);
       this.GetAllAdmins();
